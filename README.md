@@ -2,7 +2,7 @@
   OpenVO: Open-World Visual Odometry with Temporal Dynamics Awareness
 </h1>
 
-This is the official GitHub repository of the paper:
+:oncoming_automobile: This is the official GitHub repository of the paper:
 
 **[OpenVO: Open-World Visual Odometry with Temporal Dynamics Awareness](https://openvo.github.io/)**
 </br>
@@ -12,7 +12,7 @@ This is the official GitHub repository of the paper:
 </br>
 *CVPR 2026*
 
-### [Project Page](https://openvo.github.io/) | [Arxiv](https://arxiv.org/abs/2602.19035) | [BibTeX](#citing-openvo)
+### [Project Page](https://openvo.github.io/) | [Arxiv](https://arxiv.org/abs/2602.19035) | [Video](https://www.youtube.com/watch?v=83LLeMC3vuc)
 
 <img width="1100" src="./docs/teaser.png" />
 
@@ -31,12 +31,9 @@ Details of the model architecture and experimental results can be found in [our 
 
 
 ## Features :mega:
-* State-of-the-art performance of Open-Vocabulary Instance Segmentation on ScanNet200, S3DIS, and Replica.
-* Support Open-Vocabulary queries: affordances, materials, color, shape, etc.
-* Reproducibility code for ScanNet200, Replica, S3DIS, ArkitScenes and Scannet++ datasets!
-* 2D segmenter: Support RAM++, Grounding DINO, SAM, YOLO-World!
-* 3D segmenter: Support ISBNet!
-* Demo application for scene visualization
+* State-of-the-art performance on metric-scale zero-shot visual odometry!
+* Support KITTI, nuScenes, Argoverse2 and many MORE!
+* Reproducibility code for the community!
 
 ## Installation guide :hammer:
 
@@ -47,7 +44,7 @@ Details of the model architecture and experimental results can be found in [our 
  Please refer to [data preparation](docs/DATA.md)
 
 
-## Inference
+## Inference :zap:
 Adjust the paths accordingly in ```my_inference.py```:
 ```
 root = './data'
@@ -63,7 +60,7 @@ If you have multiple GPUs, toggle ```nprocess=$NUM_GPUs$``` and ```devices=[0,1,
 
 For visualization, toggle the ```visualizer``` on.
 
-## Evaluation
+## Evaluation :abacus:
 
 Run
 ```
@@ -80,7 +77,11 @@ eval_dirs = [
             ]
 result_dir_openvo = '../results'
 ```
-## Training
+Note on Argoverse2_Stereo only: All results reported in the paper were obtained using models trained with ground-truth intrinsics from stereo videos. The corresponding numerical results are available in ./odom-eval/evaluation_results.
+```
+ARGO2_Stereo: 12.59, 2.63, 7.71, 0.13 KITTI_X: 9.06, 3.45, 96.24, 0.06 NUSC_X: 9.04, 3.86, 5.90, 0.10
+```
+## Training :red_car:
 After preparing the data, train the model.
 
 Single GPU training:
@@ -89,3 +90,15 @@ python my_inference.py --config configs/openvo.py
 ```
 Check your log while training...(there would be no on-screen display)
 
+
+## TODO :memo:
+Please keep an eye out for the regular update!
+Status | Name | Date
+:---:| --- | ---
+✅| OpenVO [project page](https://openvo.github.io/) launched | 2025-11-30
+✅| OpenVO accepted at [CVPR 2026](https://cvpr.thecvf.com/) | 2026-02-21
+✅| Release OpenVO repository with paper's pretrained weight | 2026-05-13
+⬜️| Release ✅ [KITTI](https://huggingface.co/datasets/PhucDucAnhNguyen/OpenVO_KITTI/) ⬜️ nuScenes ⬜️ Argoverse2 precomputed dataset | 
+⬜️| Support more Autonomous Driving datasets (WOMD, P-AV-nvidia) | 
+⬜️| Release OpenVO-Heavy (trained on full nuScenes, KITTI, Argoverse2) | 
+⬜️| Distributed training (on going...) | 
