@@ -149,7 +149,13 @@ def get_data_info(training_data, args, mode):
                 # scene_poses = list(np.load(f'./poses/{key}/{scene}.npy')) # Array: [N-1, 15]
                 
                 ############# Edit HZ
-                time_step = 12 // time_freq
+                if 'NUSC' in key:
+                    orig = 12
+                elif 'KITTI' in key:
+                    orig = 10
+                elif 'ARGO' in key:
+                    orig = 20 
+                time_step = orig // time_freq
                 scene_poses = []
                 scene_freqs = []
                 pose_path = os.path.join(args.data_path[key], 'poses', f'{scene}.txt' )
@@ -431,7 +437,7 @@ def get_infer_data_info(args, infer_data, data_path, depth_path, data_intrinsics
                 org_hz = 12
             elif 'KITTI' in  scene_imgs_path[:-1][0]:
                 org_hz = 10
-            elif 'Argo' in  scene_imgs_path[:-1][0]:
+            elif 'ARGO' in  scene_imgs_path[:-1][0]:
                 org_hz = 20
             else:
                 org_hz = 10
