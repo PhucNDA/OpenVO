@@ -355,7 +355,7 @@ class Depth_Processor:
 
 # ---------------------------------------------------------------------- MAIN FUNCTION # ---------------------------------------------------------------------- 
 
-datapath = 'data/nuScenes/NUSCv1.0-trainval_12hz/CAM_FRONT'
+datapath = './data/nuScenes/NUSCv1.0-trainval_12hz/CAM_FRONT'
 
 proc = Depth_Processor(root = datapath)
 proc.process(0,100, use_gt = None) # Use start_id, end_id if you have multiple threads 

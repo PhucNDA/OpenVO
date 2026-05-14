@@ -12,7 +12,6 @@ import random
 import matplotlib
 import itertools
 matplotlib.use('Agg')
-
 # Model
 from model import *
 from fisher.fisher_utils import vmf_loss as fisher_NLL, fisher_CE, batch_torch_A_to_R, fisher_entropy
@@ -126,7 +125,7 @@ class InferenceVO:
 if __name__ == '__main__':
     root = './data'
     weights = './weights/OpenVO/openvo_nusc_gt'
-    save_path = "./results"
+    save_path = "./results_test"
     
     
     paths = os.listdir(weights)
@@ -141,7 +140,7 @@ if __name__ == '__main__':
         ivo = InferenceVO(root_path=root, save_path=save_path, weight=weight, nprocess=1) # 4
         if ivo.already == True: # already evaluated!
             continue
-        procs, json_pths = ivo.launch_workers(run_py="my_inference_utils.py", devices=[0])  # returns Popen handles 4 || 0->(0,1,2,3)
+        procs, json_pths = ivo.launch_workers(run_py="src/my_inference_utils.py", devices=[0])  # returns Popen handles 4 || 0->(0,1,2,3)
         for p in procs:
             p.wait() # wait till finished!
         ## Visualize # toggle on

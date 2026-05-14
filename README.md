@@ -53,7 +53,7 @@ save_path = "./results"
 ```
 Run
 ```bash
-python my_inference.py --config configs/openvo.py
+python src/my_inference.py --config configs/openvo.py
 ```
 
 If you have multiple GPUs, toggle ```nprocess=$NUM_GPUs$``` and ```devices=[0,1,2,...$NUM_GPUs$-1]``` in ```main()```. This would launch multiprocess with shared CPU/RAM for mass inference.
@@ -86,7 +86,7 @@ After preparing the data, train the model.
 
 Single GPU training:
 ```bash
-python my_inference.py --config configs/openvo.py
+python src/main.py --config configs/openvo.py
 ```
 Check your log while training...(there would be no on-screen display)
 

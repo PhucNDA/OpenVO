@@ -111,11 +111,11 @@ class InferenceVO_Util:
                         0.0,0.0,1.0,0.0]]
             pose_it = 0
             with torch.no_grad():
-                for step, (img_paths, x, intrs, intrs_map, depth_map0, depth_map1, depth_3d, text_features, time_freqs, scene_pose) in enumerate(tqdm(dataloader)):
-                    x, intrs, intrs_map, depth_map0, depth_map1, depth_3d, text_features, time_freqs = x.to('cuda'), intrs.to('cuda'), intrs_map.to('cuda'), depth_map0.to('cuda'), depth_map1.to('cuda'), depth_3d.to('cuda'), text_features.to('cuda'), time_freqs.to('cuda')
+                for step, (img_paths, x, intrs, intrs_map, depth_map0, depth_map1, depth_3d, time_freqs, scene_pose) in enumerate(tqdm(dataloader)):
+                    x, intrs, intrs_map, depth_map0, depth_map1, depth_3d, time_freqs = x.to('cuda'), intrs.to('cuda'), intrs_map.to('cuda'), depth_map0.to('cuda'), depth_map1.to('cuda'), depth_3d.to('cuda'), time_freqs.to('cuda')
                     # Show PointCloud for debugging
                     # show_pcd(img = x[0,:3,:,:], lidar_xy = depth_3d[0,2:,:,:], depth = depth_map0[0], save_path = '../debug/')
-                    predicted_p, predicted_r = self.model.forward(x, intrs, intrs_map, depth_map0, depth_map1, depth_3d, text_features, time_freqs)
+                    predicted_p, predicted_r = self.model.forward(x, intrs, intrs_map, depth_map0, depth_map1, depth_3d, time_freqs)
                     
                     if self.args.velocity_target:
                         #### Translation Velocity

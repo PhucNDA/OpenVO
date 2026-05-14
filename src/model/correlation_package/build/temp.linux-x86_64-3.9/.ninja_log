@@ -1,0 +1,3 @@
+# ninja log v7
+1	27400	1778721209100392430	/fs/nexus-projects/AD_dashrecon/ADVO/OpenVO/src/model/correlation_package/build/temp.linux-x86_64-3.9/correlation_cuda.o	6774ab971d2c9d93
+3	58906	1778721209104411714	/fs/nexus-projects/AD_dashrecon/ADVO/OpenVO/src/model/correlation_package/build/temp.linux-x86_64-3.9/correlation_cuda_kernel.o	7193c7ecffa095bb

@@ -1,3 +1,7 @@
+import sys, os
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, ROOT)
+
 from data.argo2_logs_map import argo2_logs_map, argo2_stereo_remove, argo2_openvo, argo2_openvo_test
 from data.nusc_scene_map import nusc_scene_map
 import json
@@ -71,7 +75,6 @@ class Parameters():
 			# 'ARGO2_Stereo':{'ARGO2_Stereo': argo2_openvo},
 			# 'KITTI': {'KITTI': ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10']}, # gt-intrinsic
 			'KITTI_X': {'KITTI_X': ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10']}, # wild-camera
-			# 'NUSC_X':{'NUSC_X': nusc_scene_map['boston-seaport']}, # subset for fast validation (not benchmark)
 			# 'NUSC_X':{'NUSC_X': nusc_scene_map['boston-seaport'] + nusc_scene_map['singapore-queenstown'] + nusc_scene_map['singapore-hollandvillage']},
 			# 'NUSC':{'NUSC': nusc_scene_map['boston-seaport'] + nusc_scene_map['singapore-queenstown'] + nusc_scene_map['singapore-hollandvillage']},
 

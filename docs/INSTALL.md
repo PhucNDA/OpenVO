@@ -43,7 +43,7 @@ conda install -c conda-forge gcc_linux-64=11 gxx_linux-64=11 ninja
 export CC=$(which x86_64-conda-linux-gnu-gcc)
 export CXX=$(which x86_64-conda-linux-gnu-g++)
 export CUDA_HOME=$(dirname $(dirname $(which nvcc)))
-cd ./OpenVO/model/correlation_package
+cd ./OpenVO/src/model/correlation_package
 pip install -e . --no-build-isolation
 ```
 
@@ -60,7 +60,7 @@ python -m pip install pyviz3d
 Manually copy/move the file wrt to **your** workspace dir {openvo} <-- your env name
 ```bash
 # from root
-cd ../../
+cd ../../../
 cp -r ./vision_transformer_cross.py  miniconda3/envs/{openvo}/lib/python3.9/site-packages/timm/models/
 
 ```
