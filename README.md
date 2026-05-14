@@ -1,0 +1,91 @@
+<h1 align="center">
+  OpenVO: Open-World Visual Odometry with Temporal Dynamics Awareness
+</h1>
+
+This is the official GitHub repository of the paper:
+
+**[OpenVO: Open-World Visual Odometry with Temporal Dynamics Awareness](https://openvo.github.io/)**
+</br>
+[Phuc Nguyen](https://phucnda.github.io/),
+[Anh Nhu](https://github.com/anh-nn01/),
+[Ming Lin](https://www.cs.umd.edu/~lin/)
+</br>
+*CVPR 2026*
+
+### [Project Page](https://openvo.github.io/) | [Arxiv](https://arxiv.org/abs/2602.19035) | [BibTeX](#citing-openvo)
+
+<img width="1100" src="./docs/teaser.png" />
+
+ **OpenVO**, a novel framework for Open-world Visual Odometry (VO) under **limited input conditions**.
+
+Details of the model architecture and experimental results can be found in [our paper](https://arxiv.org/abs/2602.19035)
+```bibtext
+@article{nguyen2026openvo,
+  title={OpenVO: Open-World Visual Odometry with Temporal Dynamics Awareness},
+  author={Nguyen, Phuc DA and Nhu, Anh N and Lin, Ming C},
+  journal={arXiv preprint arXiv:2602.19035},
+  year={2026}
+}
+```
+**Please CITE** our paper whenever this repository is used to help produce published results or incorporated into other software.
+
+
+## Features :mega:
+* State-of-the-art performance of Open-Vocabulary Instance Segmentation on ScanNet200, S3DIS, and Replica.
+* Support Open-Vocabulary queries: affordances, materials, color, shape, etc.
+* Reproducibility code for ScanNet200, Replica, S3DIS, ArkitScenes and Scannet++ datasets!
+* 2D segmenter: Support RAM++, Grounding DINO, SAM, YOLO-World!
+* 3D segmenter: Support ISBNet!
+* Demo application for scene visualization
+
+## Installation guide :hammer:
+
+ Please refer to [installation guide](docs/INSTALL.md)
+
+## Data preparation :open_file_folder:
+
+ Please refer to [data preparation](docs/DATA.md)
+
+
+## Inference
+Adjust the paths accordingly in ```my_inference.py```:
+```
+root = './data'
+weights = './weights/OpenVO/openvo_nusc_gt'
+save_path = "./results"
+```
+Run
+```bash
+python my_inference.py --config configs/openvo.py
+```
+
+If you have multiple GPUs, toggle ```nprocess=$NUM_GPUs$``` and ```devices=[0,1,2,...$NUM_GPUs$-1]``` in ```main()```. This would launch multiprocess with shared CPU/RAM for mass inference.
+
+For visualization, toggle the ```visualizer``` on.
+
+## Evaluation
+
+Run
+```
+cd ./odom-eval
+python eval.py
+```
+
+The results will be saved under ```./odom-eval/evaluation_results```
+
+Adjust the paths in ```eval.py``` accordingly:
+```
+eval_dirs = [
+            "openvo_nusc_gt"
+            ]
+result_dir_openvo = '../results'
+```
+## Training
+After preparing the data, train the model.
+
+Single GPU training:
+```bash
+python my_inference.py --config configs/openvo.py
+```
+Check your log while training...(there would be no on-screen display)
+

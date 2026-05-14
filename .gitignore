@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Environments
+.env
+.venv/
+venv/
+conda-env/
+*.log
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
+# Data / outputs / large files
+data/Argoverse_2
+data/KITTI
+data/nuScenes
+weights/
+
+# Model/checkpoint files
+*.pth
+*.pt
+*.ckpt
+*.pkl
+*.npz
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
