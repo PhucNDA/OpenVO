@@ -157,7 +157,7 @@ class InferenceVO_Util:
                     f.write(' '.join(str(e) for e in pose))
                     f.write('\n')
             ## Online Visualization
-            # visualizer(self.inference_data, self.save_path, self.weight)
+            visualizer(self.inference_data, self.save_path, self.weight)
 
         
 

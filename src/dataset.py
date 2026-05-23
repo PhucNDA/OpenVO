@@ -133,9 +133,8 @@ def get_data_info(training_data, args, mode):
     large_rot_examples_num = 0
     
     removed_indices_num = 0
-
-    for time_freq in time_banks:
-        for key in training_data.keys():
+    for key in training_data.keys():
+        for time_freq in time_banks[key]:
             # print(key)
             for scene in training_data[key]:
                 # print(scene)

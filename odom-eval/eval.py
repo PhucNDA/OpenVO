@@ -7,7 +7,8 @@ import json
 from tqdm import tqdm
 
 eval_dirs = [
-            "openvo_nusc_gt"
+            "openvo_nusc_gt",
+            # "openvo_nusc_gt_heavy"
             ]
 result_dir_openvo = '../results'
 
@@ -15,7 +16,7 @@ eval_tool = KittiEvalOdom()
 kitti_gt_dir = "./dataset/kitti/gt_poses/"
 nusc_gt_dir = "./dataset/nusc/gt_poses/"
 argo2_gt_dir = "./dataset/argo2/gt_poses/"
-argo2_stereo_gt_dir = "./dataset/argo2_stereo/gt_poses/"
+argo2_stereo_gt_dir = "./dataset/argo2_stereo20/gt_poses/"
 
 scenes = ['KITTI_X', 'NUSC_X', 'ARGO2_Stereo']
 for _dir in eval_dirs:

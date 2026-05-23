@@ -61,9 +61,9 @@ class Parameters():
 
 		# Training set
 		self.training_data = {
-			'NUSC': nusc_scene_map['singapore-onenorth'], 		# gtruth (training)
-            # 'NUSC_X': nusc_scene_map['singapore-onenorth'], 	# estimated
-			# 'YouTube': [str(i).zfill(2) for i in range(49)]
+			'NUSC': nusc_scene_map['singapore-onenorth'] + nusc_scene_map['boston-seaport'] + nusc_scene_map['singapore-queenstown'] + nusc_scene_map['singapore-hollandvillage'], 		# gtruth (training)
+            'KITTI': ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10'],
+            'ARGO2_Stereo': argo2_openvo,
             }
 		# Validation set
 		self.testing_data = {
@@ -85,7 +85,7 @@ class Parameters():
 		Data Preprocessing
 		'''
 		##############################################
-		self.n_processors = 8 # suggested: 16
+		self.n_processors = 16 # suggested: 16
 		self.scale = [0.7, 1]
 		self.img_w = 640  
 		self.img_h = 384   
@@ -96,9 +96,14 @@ class Parameters():
 		'''
 		##############################################
 		self.velocity_target = False # predicting velocity $Future feature$
-	
+
 		self.model_type = 'openvo'
-		self.adaptiveHZ = {'NUSC': [12, 6, 4],} # static Hz
+        
+		self.adaptiveHZ = {
+			'NUSC': [12, 6, 4],
+			'KITTI': [10, 5],
+			'ARGO2_Stereo': [20, 10, 5, 4],
+		} 
 		self.dist = False # Distributed Training $Future feature$
 		self.step_scheduler = False # Scheduler Step?
 		self.freq_k = 8 # time freq pos embed
@@ -117,8 +122,9 @@ class Parameters():
 		self.mlp_embed_dim = 256 # 256 or 512
 		self.num_heads = 4
 		self.num_blocks = 8 # suggested ~ 4
-		self.model_path = './weights/OpenVO/openvo_nusc_gt_test' # (trained on nusc_gt)
+		self.model_path = './weights/OpenVO/openvo_nusc_gt_heavy' # (trained on nusc_gt)
 		self.pretrained_flownet_path = './weights/init_weights'
 
 
+# 32cpu, 64GB RAM, 24GB VRAM
 args = Parameters()

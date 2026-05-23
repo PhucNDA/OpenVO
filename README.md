@@ -34,6 +34,7 @@ Details of the model architecture and experimental results can be found in [our 
 * State-of-the-art performance on metric-scale zero-shot visual odometry!
 * Support KITTI, nuScenes, Argoverse2 and many MORE!
 * Reproducibility code for the community!
+* Continuous maintenance/improvement for stronger version!
 
 ## Installation guide :hammer:
 
@@ -98,7 +99,7 @@ Status | Name | Date
 ✅| OpenVO [project page](https://openvo.github.io/) launched | 2025-11-30
 ✅| OpenVO accepted at [CVPR 2026](https://cvpr.thecvf.com/) | 2026-02-21
 ✅| Release OpenVO repository with paper's pretrained weight | 2026-05-13
-⬜️| Release ✅ [KITTI](https://huggingface.co/datasets/PhucDucAnhNguyen/OpenVO_KITTI/) ⬜️ nuScenes ⬜️ Argoverse2 precomputed dataset | 
-⬜️| Support more Autonomous Driving datasets (WOMD, P-AV-nvidia) | 
-⬜️| Release OpenVO-Heavy (trained on full nuScenes, KITTI, Argoverse2) | 
+⬜️| Release ✅ [KITTI](https://huggingface.co/datasets/PhucDucAnhNguyen/OpenVO_KITTI/) ✅ [nuScenes](https://huggingface.co/datasets/PhucDucAnhNguyen/OpenVO_NuScene/) ⬜️ Argoverse2 precomputed dataset | 2026-05-23 
+✅| Release [OpenVO-Heavy-v1](https://drive.google.com/drive/folders/1U3PT-ee2Vnat30BqwBkfNnupkhyKaLZF?usp=sharing) (trained on full nuScenes, KITTI, Argoverse2) -- good rotation | 2026-05-23
+⬜️| Support more Autonomous Driving datasets (WOMD, P-AV-nvidia,...) | 
 ⬜️| Distributed training (on going...) | 

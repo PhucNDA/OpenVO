@@ -124,13 +124,13 @@ class InferenceVO:
 
 if __name__ == '__main__':
     root = './data'
-    weights = './weights/OpenVO/openvo_nusc_gt'
+    weights = './weights/OpenVO/openvo_nusc_gt_heavy'
     save_path = "./results_test"
     
     
     paths = os.listdir(weights)
     ## Manual
-    # paths = ['model_ep-022.pt']
+    paths = ['model_ep-001.pt']
     
     for path in paths:
         if not path.endswith('.pt'):
